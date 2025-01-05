@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="curso_flutter_"
+        android:label="aulas_flutter_"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

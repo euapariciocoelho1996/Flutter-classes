@@ -1,62 +1,62 @@
+import 'package:aulas_flutter_/data/TextEditingController.dart';
+import 'package:aulas_flutter_/data/form.dart';
+import 'package:aulas_flutter_/data/onChanged.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:shop/models/auth.dart';
-import 'package:shop/models/cart.dart';
-import 'package:shop/models/order_list.dart';
-import 'package:shop/models/product_list.dart';
-import 'package:shop/pages/auth_page.dart';
-import 'package:shop/pages/cart_page.dart';
-import 'package:shop/pages/orders_page.dart';
-import 'package:shop/pages/product_detail_page.dart';
-import 'package:shop/pages/product_form_page.dart';
-import 'package:shop/pages/products_overview_page.dart';
-import 'package:shop/pages/products_page.dart';
-import 'package:shop/utils/app_routes.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(
-          create: (_) => ProductList(),
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(widget.title),
+      ),
+      body: Center(
+        child: ListView(
+          children: [
+            Column(
+              children: [
+              ],
+            ),
+          ],
         ),
-        ChangeNotifierProvider(
-          create: (_) => Cart(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => OrderList(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => Auth(),
-        ),
-      ],
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSwatch().copyWith(
-            primary: Colors.purple,
-            secondary: Colors.deepOrange,
-          ),
-          fontFamily: 'Lato',
-        ),
-        // home: const ProductsOverviewPage(),
-        routes: {
-          AppRoutes.auth: (ctx) => const AuthPage(),
-          AppRoutes.home: (ctx) => const ProductsOverviewPage(),
-          AppRoutes.productDetail: (ctx) => const ProductDetailPage(),
-          AppRoutes.cart: (ctx) => const CartPage(),
-          AppRoutes.orders: (ctx) => const OrdersPage(),
-          AppRoutes.products: (ctx) => const ProductsPage(),
-          AppRoutes.productForm: (ctx) => const ProductFormPage(),
-        },
-        debugShowCheckedModeBanner: false,
       ),
     );
   }
