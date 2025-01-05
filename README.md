@@ -16,7 +16,7 @@ Para usar o TextEditingController primeiro criamos um controlador:
 | **Complexidade**         | Mais simples de implementar.                   | Requer configuração adicional.                  |
 | **Uso Típico**           | Ações simples em tempo real.                   | Necessidade de acessar, alterar ou limpar o texto. |
 
-## From
+## Form
 
 O **`Form`** em Flutter é um widget usado para agrupar e gerenciar múltiplos campos de entrada, como `TextFormField`. Ele oferece suporte a funcionalidades avançadas como **validação**, **gerenciamento de estado** e **submissão de dados**. Ideal para formulários complexos e com vários campos.
 
